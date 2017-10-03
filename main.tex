@@ -35,8 +35,14 @@
 \long\def\commentl#1{{\bf **Shih-Yun: #1**}}
 \long\def\commentp#1{{\bf **Peter: #1**}}
 
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{-0pt}
+\lhead{\normalsize \texttt{In} \textit{~Proceedings of \texttt{RSS'17} Workshop on Human Centered Robotics} \\
+\texttt{Cambridge, MA, USA July 2017}}
+\cfoot{}
+\setlength{\voffset}{-15pt}
+\setlength{\headsep}{25pt}
 \begin{document}
-
 %\title{Towards Modeling Real-world Human-robot Interaction that Prevents Overfitting}
 \title{Iterative Human-Aware Mobile Robot Navigation}
 
@@ -52,6 +58,7 @@
 
 \maketitle
 
+`\thispagestyle{fancy}
 \begin{abstract}
 Mobile robot navigation in human populated environments has been
 widely studied in the past two decades. Significant improvements in
@@ -282,9 +289,6 @@ the presence of the mobile robots.
 %To solve this problem, we acknowledge that different pedestrian behaviors are excited under different robot maneuver policies. The learnt pedestrian dynamics may only capture partial interactive behaviors with the robot given its conducted policy. For example, if the robot navigates in the crowd with conservative avoiding behaviors, the learnt interaction would be limited as treated as a static obstacle; on the other hand, aggressive robot navigation may result in pedestrian avoiding behaviors where limited interaction is experienced. 
 
 % introduce this work that does not overfit
-
-
-
 \vspace{-0.2em}
 \section{Related Work}
 \label{sec:related}
@@ -326,7 +330,7 @@ better human-robot interaction in crowds by learning a predictive model
 iteratively through online interaction, and propose a predictive model 
 that generates plans to avoid dynamic obstacles based on personal walking features. 
 \section{Methodology}
-\vspace{-0.3em}
+\vspace{-0.1em}
 The following is a receding-horizon control formulation of the constrained 
 optimization problem characterizing the pedestrian's motion. The control 
 $u \in \mathbbm{R}^2$ 
@@ -711,7 +715,7 @@ following the formulation in
 Eq.~\ref{eq:logi}, taking into consideration the robot's action $a^r$ (designed as 
 to follow human crossing dynamic patterns):
 \begin{equation}~\label{eq:transition}
-p(a^p=a^P|\xi_t, s_t, a^r) \sim \frac{1}{1+e^{w^Tf(\xi_t,s_t,a^r)}}.
+p(a=a^P|\xi^p_t, s_t, a^r) \sim \frac{1}{1+e^{w^Tf(\xi^p_t,s_t,a^r)}}.
 \end{equation}
 Note that, enabling predictable motions not only enhances human trust in the 
 robot, but also reduces the noise in the crossing pedestrian's motion that is 
